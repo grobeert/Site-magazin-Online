@@ -71,7 +71,3 @@ Flask>=2.2.2
 ```
 
 ---
-
-## Autor
-
-Grobeert – ACS An 1
