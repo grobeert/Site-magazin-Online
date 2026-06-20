@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <rect width="120" height="120" rx="16" fill="#eff6ff"/>
+  <circle cx="60" cy="58" r="35" fill="none" stroke="#bfdbfe" stroke-width="8"/>
+  <path d="M60 58 L60 28" stroke="#1d4ed8" stroke-width="4" stroke-linecap="round"/>
+  <path d="M60 28 A30 30 0 0 1 90 58" stroke="#3b82f6" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <text x="60" y="64" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e40af" font-family="sans-serif">TVA</text>
+  <path d="M48 88 L60 98 L72 88" stroke="#f59e0b" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block title %}ContaShop – Servicii Contabile{% endblock %}
+
+{% block hero %}
+<section class="hero-section">
+    <div class="container text-center">
+        <h1 class="display-5 fw-bold mb-3">Contabilitate simplă.<br>Afacere sigură.</h1>
+        <p class="lead text-muted mb-4">Pachete de servicii contabile pentru orice tip de firmă,<br>livrate de experți certificați CECCAR.</p>
+        <a href="#servicii" class="btn btn-primary btn-lg px-4">
+            <i class="bi bi-arrow-down-circle me-2"></i>Vezi serviciile
+        </a>
+    </div>
+</section>
+{% endblock %}
+
+{% block content %}
+<div id="servicii">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h2 class="fw-bold mb-0">Serviciile noastre</h2>
+            <p class="text-muted mb-0">{{ products|length }} pachete disponibile</p>
+        </div>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 g-4">
+        {% for product in products %}
+        <div class="col">
+            <div class="card product-card h-100">
+                {% if product.badge %}
+                <span class="product-badge badge-{{ product.badge|lower }}">{{ product.badge }}</span>
+                {% endif %}
+                <div class="card-img-wrapper">
+                    <img src="{{ url_for('static', filename='img/' + product.image) }}"
+                         class="card-img-top product-img"
+                         alt="{{ product.name }}"
+                         onerror="this.src='{{ url_for('static', filename='img/default.svg') }}'">
+                </div>
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title fw-semibold">{{ product.name }}</h5>
+                    <p class="card-text text-muted small flex-grow-1">{{ product.description }}</p>
+                    <div class="d-flex align-items-center justify-content-between mt-3">
+                        <span class="product-price">{{ "%.0f"|format(product.price) }} RON<span class="small text-muted fw-normal">/lună</span></span>
+                        <a href="{{ url_for('cart_add_item', id=product.id) }}"
+                           class="btn btn-add-cart">
+                            <i class="bi bi-cart-plus me-1"></i>Adaugă
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="row mt-5 g-4">
+        <div class="col-md-4">
+            <div class="feature-card text-center p-4">
+                <i class="bi bi-shield-check feature-icon"></i>
+                <h5 class="fw-semibold mt-3">Experți certificați</h5>
+                <p class="text-muted small">Toți contabilii noștri sunt membri activi CECCAR și CAFR.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="feature-card text-center p-4">
+                <i class="bi bi-clock-history feature-icon"></i>
+                <h5 class="fw-semibold mt-3">Răspuns în 24h</h5>
+                <p class="text-muted small">Orice întrebare primește răspuns în maxim o zi lucrătoare.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="feature-card text-center p-4">
+                <i class="bi bi-graph-up-arrow feature-icon"></i>
+                <h5 class="fw-semibold mt-3">Optimizare fiscală</h5>
+                <p class="text-muted small">Identificăm oportunități legale de reducere a sarcinii fiscale.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

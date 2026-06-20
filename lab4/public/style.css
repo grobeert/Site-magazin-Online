@@ -1,0 +1,49 @@
+/* Sensor card blocks */
+.row.caption span,
+.row.values span {
+    display: block;
+    text-align: center;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 4px;
+}
+
+.row.caption span {
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.row.values span {
+    font-size: 1.1rem;
+    padding: 14px 10px;
+}
+
+/* Humidity - pink */
+.row.caption span.hum, .row.caption span.hum2 {
+    background: #f4a7b0;
+    color: #5a2a30;
+}
+.row.values span.hum, .row.values span.hum2 {
+    background: #fce4e7;
+    color: #5a2a30;
+}
+
+/* Temperature - blue */
+.row.caption span.temp, .row.caption span.temp2 {
+    background: #90c8f0;
+    color: #1a3a50;
+}
+.row.values span.temp, .row.values span.temp2 {
+    background: #daeefb;
+    color: #1a3a50;
+}
+
+/* Rain - green */
+.row.caption span.rain {
+    background: #95dbb5;
+    color: #1a3d2b;
+}
+.row.values span.rain {
+    background: #d8f3e6;
+    color: #1a3d2b;
+}

@@ -1,0 +1,28 @@
+{% extends "_layout.html" %}
+
+{% block content %}
+<h2>IoT Sensors Dashboard</h2>
+
+<h3 class="my-4" style="text-decoration: underline">Outside sensors:</h3>
+<div class="row caption">
+  <div class="col-4"><span class="hum">Humidity</span></div>
+  <div class="col-4"><span class="temp">Temperature</span></div>
+  <div class="col-4"><span class="rain">Raining</span></div>
+</div>
+<div class="row values">
+  <div class="col-4"><span class="hum">{{ sensors.ext_hum }}%</span></div>
+  <div class="col-4"><span class="temp">{{ sensors.ext_temp }} &deg;C</span></div>
+  <div class="col-4"><span class="rain">{{ sensors.rain }}</span></div>
+</div>
+
+<h3 class="my-4" style="text-decoration: underline">Inside sensors:</h3>
+<div class="row caption">
+  <div class="col-4"><span class="hum2">Humidity</span></div>
+  <div class="col-4"><span class="temp2">Temperature</span></div>
+</div>
+<div class="row values">
+  <div class="col-4"><span class="hum2">{{ sensors.int_hum }}%</span></div>
+  <div class="col-4"><span class="temp2">{{ sensors.int_temp }} &deg;C</span></div>
+</div>
+
+{% endblock %}

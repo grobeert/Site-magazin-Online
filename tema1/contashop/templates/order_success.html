@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block title %}Comandă plasată – ContaShop{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-7 text-center py-4">
+        <div class="success-icon mb-4">
+            <i class="bi bi-check-circle-fill"></i>
+        </div>
+        <h2 class="fw-bold mb-2">Comandă plasată cu succes!</h2>
+        <p class="text-muted lead">Mulțumim, <strong>{{ order.customer.full_name }}</strong>!<br>
+        Vei fi contactat la <strong>{{ order.customer.email }}</strong> în maxim 24 de ore.</p>
+
+        <div class="card shadow-sm mt-4 text-start">
+            <div class="card-header fw-semibold">
+                <i class="bi bi-receipt me-2"></i>Sumar comandă
+            </div>
+            <div class="card-body">
+                <div class="row g-3 mb-3">
+                    <div class="col-md-6">
+                        <div class="small text-muted">Client</div>
+                        <div class="fw-medium">{{ order.customer.full_name }}</div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="small text-muted">Email</div>
+                        <div class="fw-medium">{{ order.customer.email }}</div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="small text-muted">Telefon</div>
+                        <div class="fw-medium">{{ order.customer.phone }}</div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="small text-muted">Metodă de plată</div>
+                        <div class="fw-medium text-capitalize">{{ order.customer.payment_method.replace('_', ' ') }}</div>
+                    </div>
+                    <div class="col-12">
+                        <div class="small text-muted">Adresă</div>
+                        <div class="fw-medium">{{ order.customer.address }}</div>
+                    </div>
+                </div>
+                <hr>
+                {% for item in order.items %}
+                <div class="d-flex justify-content-between small mb-1">
+                    <span>{{ item.name }} × {{ item.quantity }}</span>
+                    <span class="fw-medium">{{ "%.0f"|format(item.subtotal) }} RON</span>
+                </div>
+                {% endfor %}
+                <hr>
+                <div class="d-flex justify-content-between fw-bold">
+                    <span>Total</span>
+                    <span class="text-primary fs-5">{{ "%.0f"|format(order.total) }} RON/lună</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-4">
+            <a href="{{ url_for('index') }}" class="btn btn-primary me-2">
+                <i class="bi bi-grid me-1"></i>Înapoi la servicii
+            </a>
+            <a href="{{ url_for('contact') }}" class="btn btn-outline-secondary">
+                <i class="bi bi-envelope me-1"></i>Contactează-ne
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

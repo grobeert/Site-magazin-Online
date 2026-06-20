@@ -1,0 +1,83 @@
+/* ===== GLOBAL ===== */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f9;
+    margin: 0;
+    padding: 0;
+}
+
+/* ===== HEADER ===== */
+header {
+    background-color: #1a3a5c; /* albastru inchis sa se potriveasca cu logo-ul */
+    padding: 0;
+    margin-bottom: 0;
+}
+
+/* Task 01: imagine antet cu logo */
+.header-logo-img {
+    width: 100%;
+    max-height: 180px;
+    object-fit: cover;
+    display: block;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+    background-color: #1a3a5c !important;
+}
+
+.navbar-brand {
+    color: #ffffff !important;
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+
+.nav-link {
+    color: #cce0f5 !important;
+    font-size: 1rem;
+    padding: 8px 16px;
+    border-radius: 5px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.nav-link:hover {
+    background-color: #2e6da4;
+    color: #ffffff !important;
+}
+
+/* Task 02: clasa .active pentru link-ul curent din meniu */
+.nav-link.active {
+    background-color: #2e86de;
+    color: #ffffff !important;
+    font-weight: bold;
+    font-style: italic;
+}
+
+/* ===== CONTENT BOX ===== */
+/* Task 01: border-radius rotunjit 15px */
+.content-box {
+    background-color: #ffffff;
+    border-radius: 15px;  /* rotunjire ceruta */
+    padding: 30px;
+    margin: 30px auto;
+    max-width: 960px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
+
+.main-content {
+    line-height: 1.8;
+    color: #333;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    background-color: #1a3a5c;
+    color: #aac8e8;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+footer a {
+    color: #7ec8f7;
+}

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Bootstrap demo</title>
+		<link href="public/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<link href="public/style.css" rel="stylesheet">
+	</head>
+	<body>
+		<div class="container">
+			<header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+				<a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+					<svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
+					<span class="fs-4">IAp Curs 04</span>
+				</a>
+
+        {% set buttons = [
+            ("Home", "/"),
+            ("Contact", "/contact"),
+            ("Logout", "/logout"),
+          ] %}
+        {% set page = request.url_rule.__str__() %}
+
+				<ul class="nav nav-pills" data-url="{{ request.url_rule }}">
+					{% for btn in buttons %}
+					<li class="nav-item">
+						<a href="{{ btn[1] }}" class="nav-link {% if btn[1] == page %}active{% endif %}">
+						{{ btn[0] }}
+					</a></li>
+					{% endfor %}
+					{% if session.get("email", "").startswith("admin@") %}
+					<li class="nav-item"><a href="#" class="nav-link">Admin Zone</a></li>
+					{% endif %}
+				</ul>
+			</header>
+		</div>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-7 col-sm-12 p-4 m-2 blue-bg">
+					{% block content %}
+					Default contnet
+					{% endblock %}
+				</div>
+				<div class="col-lg-4 col-sm-12 p-4 m-2 red-bg">
+					{% block sidebar %}
+					{% if session.get("auth", False) %}
+					Logged in as {{ session["email"] }}!
+					{% endif %}
+					{% endblock %}
+				</div>
+			</div>
+		</div>
+		<script src="public/bootstrap/js/bootstrap.bundle.min.js"></script>
+	</body>
+</html>

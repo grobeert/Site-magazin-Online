@@ -1,0 +1,98 @@
+{% extends "_base.html" %}
+
+{% block title %}Contul meu - MySite{% endblock %}
+
+{% block content %}
+
+<!-- Protectie: daca nu esti autentificat, afisam mesaj -->
+{% if not session.get('authenticated') %}
+    <div class="alert alert-warning">
+        Trebuie sa fii <a href="/login">autentificat</a> pentru a accesa aceasta pagina.
+    </div>
+{% else %}
+
+<h2>Detalii cont</h2>
+<p>Bun venit, <strong>{{ session.get('username') }}</strong>!</p>
+
+<!-- Task 04 Bonus: afisare poza de profil daca exista -->
+{% if profile_photo %}
+    <div class="mb-4 text-center">
+        <img src="/public/images/profile/{{ profile_photo }}"
+             alt="Poza profil"
+             class="rounded-circle"
+             style="width:120px; height:120px; object-fit:cover; border: 3px solid #2e86de;">
+        <p class="text-muted mt-1"><small>Poza de profil</small></p>
+    </div>
+{% endif %}
+
+<!--
+    Task 03: form cu method POST catre /account-details
+    Task 04 Bonus: enctype="multipart/form-data" pentru upload fisier
+-->
+<form method="POST" action="/account-details" enctype="multipart/form-data">
+
+    <div class="mb-3">
+        <label for="full_name" class="form-label">Nume complet</label>
+        <!--
+            Task 03: value="{{ data.full_name }}" pre-umple campul
+            cu valoarea citita din database.txt
+        -->
+        <input type="text"
+               class="form-control"
+               id="full_name"
+               name="full_name"
+               value="{{ data.get('full_name', '') }}"
+               placeholder="ex: Ion Popescu">
+    </div>
+
+    <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email"
+               class="form-control"
+               id="email"
+               name="email"
+               value="{{ data.get('email', '') }}"
+               placeholder="ex: ion@example.com">
+    </div>
+
+    <div class="mb-3">
+        <label for="phone" class="form-label">Telefon</label>
+        <input type="text"
+               class="form-control"
+               id="phone"
+               name="phone"
+               value="{{ data.get('phone', '') }}"
+               placeholder="ex: 0712345678">
+    </div>
+
+    <div class="mb-3">
+        <label for="bio" class="form-label">Despre mine</label>
+        <textarea class="form-control"
+                  id="bio"
+                  name="bio"
+                  rows="3"
+                  placeholder="Scrie ceva despre tine...">{{ data.get('bio', '') }}</textarea>
+    </div>
+
+    <!-- Task 04 Bonus: upload poza de profil -->
+    <div class="mb-3">
+        <label for="profile_photo" class="form-label">
+            Poza de profil <span class="badge bg-warning text-dark">Bonus</span>
+        </label>
+        <!--
+            type="file" + enctype="multipart/form-data" pe form
+            permite incarcarea unui fisier
+        -->
+        <input type="file"
+               class="form-control"
+               id="profile_photo"
+               name="profile_photo"
+               accept="image/*">
+        <div class="form-text">Formate acceptate: JPG, PNG, GIF</div>
+    </div>
+
+    <button type="submit" class="btn btn-success">Salveaza modificarile</button>
+</form>
+
+{% endif %}
+{% endblock %}

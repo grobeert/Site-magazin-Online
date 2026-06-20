@@ -1,0 +1,22 @@
+{% extends "_base.html" %}
+
+{% block title %}A doua pagina - MySite{% endblock %}
+
+{% block content %}
+<h2>A doua pagina</h2>
+<p>
+    Aceasta este a doua pagina a site-ului.
+    Poti naviga inapoi la pagina principala folosind meniul de sus.
+</p>
+<p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.
+</p>
+
+<!-- Task 04 din lab2: continut dinamic prin parametru GET -->
+{% if mycontent %}
+    <div class="alert alert-info mt-3">
+        <strong>Continut dinamic:</strong> {{ mycontent }}
+    </div>
+{% endif %}
+{% endblock %}

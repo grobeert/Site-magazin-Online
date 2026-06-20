@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+
+{% block title %}Contact – ContaShop{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col">
+        <h2 class="fw-bold"><i class="bi bi-envelope me-2"></i>Contact</h2>
+        <p class="text-muted">Suntem aici să te ajutăm. Scrie-ne sau vizitează-ne la sediu.</p>
+    </div>
+</div>
+
+<div class="row g-4">
+    <div class="col-lg-5">
+        <div class="card shadow-sm h-100">
+            <div class="card-body p-4">
+                <h5 class="fw-semibold mb-4">Datele noastre de contact</h5>
+
+                <div class="contact-item d-flex gap-3 mb-4">
+                    <div class="contact-icon"><i class="bi bi-building"></i></div>
+                    <div>
+                        <div class="fw-medium">ContaShop SRL</div>
+                        <div class="text-muted small">CUI: RO12345678 · J12/1234/2020</div>
+                    </div>
+                </div>
+
+                <div class="contact-item d-flex gap-3 mb-4">
+                    <div class="contact-icon"><i class="bi bi-geo-alt"></i></div>
+                    <div>
+                        <div class="fw-medium">Adresă sediu</div>
+                        <div class="text-muted small">Str. Avram Iancu nr. 15, et. 2<br>400089 Cluj-Napoca, România</div>
+                    </div>
+                </div>
+
+                <div class="contact-item d-flex gap-3 mb-4">
+                    <div class="contact-icon"><i class="bi bi-telephone"></i></div>
+                    <div>
+                        <div class="fw-medium">Telefon</div>
+                        <div class="text-muted small">+40 264 123 456<br>Luni–Vineri, 09:00–18:00</div>
+                    </div>
+                </div>
+
+                <div class="contact-item d-flex gap-3 mb-4">
+                    <div class="contact-icon"><i class="bi bi-envelope-at"></i></div>
+                    <div>
+                        <div class="fw-medium">Email</div>
+                        <div class="text-muted small">office@contashop.ro<br>contabilitate@contashop.ro</div>
+                    </div>
+                </div>
+
+                <div class="contact-item d-flex gap-3">
+                    <div class="contact-icon"><i class="bi bi-patch-check"></i></div>
+                    <div>
+                        <div class="fw-medium">Certificări</div>
+                        <div class="text-muted small">Membri CECCAR · Membri CAFR<br>ISO 9001:2015 Certificat</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-7">
+        <div class="card shadow-sm">
+            <div class="card-header fw-semibold">
+                <i class="bi bi-chat-text me-2"></i>Trimite un mesaj
+            </div>
+            <div class="card-body p-4">
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label class="form-label fw-medium">Nume</label>
+                        <input type="text" class="form-control" placeholder="Numele tău">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label fw-medium">Email</label>
+                        <input type="email" class="form-control" placeholder="email@firma.ro">
+                    </div>
+                    <div class="col-12">
+                        <label class="form-label fw-medium">Subiect</label>
+                        <input type="text" class="form-control" placeholder="ex. Informații pachet IMM">
+                    </div>
+                    <div class="col-12">
+                        <label class="form-label fw-medium">Mesaj</label>
+                        <textarea class="form-control" rows="5" placeholder="Scrie mesajul tău..."></textarea>
+                    </div>
+                    <div class="col-12">
+                        <button class="btn btn-primary px-4">
+                            <i class="bi bi-send me-2"></i>Trimite mesajul
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-3 mt-1">
+            <div class="col-md-4">
+                <div class="feature-card text-center p-3">
+                    <i class="bi bi-clock feature-icon" style="font-size: 1.8rem;"></i>
+                    <div class="fw-medium mt-2 small">Program</div>
+                    <div class="text-muted" style="font-size: 0.8rem;">L-V: 09:00–18:00</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card text-center p-3">
+                    <i class="bi bi-reply-all feature-icon" style="font-size: 1.8rem;"></i>
+                    <div class="fw-medium mt-2 small">Răspuns rapid</div>
+                    <div class="text-muted" style="font-size: 0.8rem;">Maxim 24 ore</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card text-center p-3">
+                    <i class="bi bi-headset feature-icon" style="font-size: 1.8rem;"></i>
+                    <div class="fw-medium mt-2 small">Suport dedicat</div>
+                    <div class="text-muted" style="font-size: 0.8rem;">Expert personal</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
